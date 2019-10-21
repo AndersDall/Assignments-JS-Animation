@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<script src="jsanimN0.js"></script>
+
+<script>
+            var arr = [];
+            var canvas;
+
+            var redraw = function () {
+                canvas.clear();     // clear canvas
+                canvas.prep();      // prep canvas with background color
+                for (let umo of arr) {
+                    umo.move();  // change coordinates
+                    umo.draw();  // draw again with new coordinates
+                }
+            }
+
+            var repeater = function () {
+                setInterval(redraw, 10);
+            }
+
+            var initialize = function () {
+                canvas = Object.create(Canvas);
+                canvas.init('canvas', '#ff0088');
+                let c0 = Object.create(Umo);
+                c0.init(canvas, '#000088');
+                arr.push(c0);
+                c0 = Object.create(Umo);
+                c0.init(canvas, '#cc0000');
+                arr.push(c0);
+                c0 = Object.create(Umo);
+                c0.init(canvas, '#009900');
+                arr.push(c0);
+                c0 = Object.create(Umo);
+                c0.init(canvas, '#ffff11');
+                arr.push(c0);
+                c0 = Object.create(Umo);
+                c0.init(canvas, '#ff2222');
+                arr.push(c0);
+                c0 = Object.create(Umo);
+                c0.init(canvas, '#222222');
+                arr.push(c0);
+                c0 = Object.create(Umo);
+                c0.init(canvas, '#112222');
+                arr.push(c0);
+                c0 = Object.create(Umo);
+                c0.init(canvas, '#442222');
+                arr.push(c0);
+                c0 = Object.create(Umo);
+                c0.init(canvas, '#662222');
+                arr.push(c0);
+                c0 = Object.create(Umo);
+                c0.init(canvas, '#772222');
+                arr.push(c0);
+                repeater();
+            }
+
+            var nml = window.addEventListener('load', initialize, false);
+        </script>
+
+</head>
+
+<body>
+  <h1>Assignments JS.Animation</h1>
+  <h3>Handing In Assignments</h3>
+  <h4>Assignment jsanimN0</h4>
+
+<section>
+  <canvas id='canvas' width='500' height='600'>
+      If you see this text, your browser is very old.
+  </canvas>
+</section>
+
+
+</body>
+</html>
